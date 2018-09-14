@@ -1,0 +1,58 @@
+train_mass = 22680
+train_acceleration = 10
+train_distance = 100
+c=3*10**8
+bomb_mass = 1
+
+# 1 - 2
+def f_to_c(f_temp):
+  c_temp = (f_temp - 32) * 5/9
+# rwnie dobrze mona by to zapisa w 1 linijce: return (f_temp - 32) * 5/9, jednak robimy to przez zadeklarowanie zmiennej c_temp (wynika to z treci zadania)
+  return c_temp
+f100_in_celsius = f_to_c(100)
+
+print(f100_in_celsius)
+
+# 3 - 4
+def c_to_f(c_temp):
+  f_temp = (c_temp * (9/5)) + 32
+# zapis moe by w postaci: return (c_temp * (9/5)) + 32, zmienna f_temp zadeklarowana jest na podstawie treci zadania
+  return f_temp
+c0_in_fahrenheit = c_to_f(0)
+
+print(c0_in_fahrenheit)
+
+# 5 - 6
+def get_force(mass, acceleration):
+  return mass * acceleration
+# powyej nie trzeba deklarowa zmiennej (np. cel = mass * acceleration) - wystarczy zapis dziaania do 		  podstawienia poniej pod zmienn train_froce,
+# zmienna mass to w tym przypadku train_mass podana w danych na pocztku zadania, a zmienna acceleration to train_acceleration rwnie podana wyej; zapis wynika z kolejnych punktw zadania
+train_force = get_force(22680, 10)
+
+print(train_force)
+
+# 7
+
+print("The GE train supplies " + str(train_force) + " Newtons of force.")
+
+# 8 - 9
+
+def get_energy(mass, c):
+  return mass * c**2
+# w tym przypadku mass to bomb_mass co wynika z treci zadania. C zostao przypisane jako zmienna ze sta wartoci - wzr do jej obliczenia znajduje si na poczarku kodu (jako warto uniwersalna dla caoci kodu - jej warto si nie zmienia) Dodatkowo c zwracane jest tutaj jako warto do kwadratu czyli c**2 co rwnie wynika z treci zadania. Moemy te zadeklarowa c bezporednio w funkcji czyli - def get_energy(mass, c=3*10**8)
+
+bomb_energy = get_energy(bomb_mass, c)
+
+print(bomb_energy)
+
+# 10
+print("A 1kg bomb supplies " + str(bomb_energy) + " Joules.")
+
+# 11
+def get_work(mass, acceleration, distance):
+  force = get_force(mass, acceleration) * distance
+  return force
+
+train_work = get_work(train_mass, train_acceleration, train_distance)
+
+print("The GE train does " + str(train_work) + " Joules of work over " + str(train_distance) + " meters.")
